@@ -1,0 +1,23 @@
+{
+  "server": {
+    "port": 8001
+  },
+  "logging": {
+    "$filter": "env",
+    "ci": {
+      "enabled": false
+    },
+    "production": {
+      "enabled": true,
+      "prettyPrint": false
+    },
+    "$default": {
+      "enabled": true,
+      "prettyPrint": true
+    }
+  },
+  "openapi": {
+    "api": "./src/server/swagger.yaml",
+    "handlers": "./src/server/handlers"
+  }
+}

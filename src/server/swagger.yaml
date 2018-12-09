@@ -1,0 +1,91 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Service-Map Service
+basePath: /api
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /test1:
+    get:
+      operationId: get_test1
+      produces:
+        - application/json
+      parameters:
+        - name: q
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: sucess
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+        default:
+          description: error
+    post:
+      operationId: post_test1
+      produces:
+        - application/json
+      parameters:
+        - name: item
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        '200':
+          description: sucess
+        default:
+          description: error
+  /test2:
+    get:
+      operationId: get_test2
+      produces:
+        - application/json
+      parameters:
+        - name: q
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: sucess
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+        default:
+          description: error
+    post:
+      operationId: post_test2
+      produces:
+        - application/json
+      parameters:
+        - name: item
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        '200':
+          description: sucess
+        default:
+          description: error
+definitions:
+  Item:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      value:
+        type: integer
+  

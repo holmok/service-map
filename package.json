@@ -1,0 +1,48 @@
+{
+  "name": "service-map",
+  "version": "1.0.0",
+  "description": "A bench app to test opentracing for creating service maps in hapi apps that use wreck.",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=* nodemon --inspect ./index.js",
+    "lint": "standard \"src/**/*.js\" \"tests/**/*.js\" \"index.js\"",
+    "test:unit": "tape ./tests/unit/**/*.test.js",
+    "test:integration": "NODE_ENV=ci tape ./tests/integration/**/*.test.js",
+    "test:coverage": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --reporter=text --reporter=text-summary --reporter=html npm run test:unit",
+    "test": "npm run lint && npm run test:integration && npm run test:coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holmok/service-map.git"
+  },
+  "keywords": [
+    "hapi.js",
+    "wreck",
+    "opentracing"
+  ],
+  "author": "Christopher Holmok <christopher@holmok.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holmok/service-map/issues"
+  },
+  "homepage": "https://github.com/holmok/service-map#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.7",
+    "nyc": "^13.1.0",
+    "sinon": "^7.1.1",
+    "standard": "^12.0.1",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "boom": "^7.3.0",
+    "confidence": "^4.0.1",
+    "debug": "^4.1.0",
+    "glue": "^5.0.0",
+    "hapi": "^17.8.1",
+    "hapi-openapi": "^1.2.0",
+    "hapi-pino": "^5.1.0",
+    "make-promises-safe": "^4.0.0",
+    "opentracing": "^0.14.3",
+    "wreck": "^14.1.3"
+  }
+}
